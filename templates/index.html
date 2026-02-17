@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Tier Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Two Tier Web App 🚀</h1>
+
+        <form method="POST" action="/submit">
+            <input type="text" name="username" placeholder="Enter your name" required>
+            <button type="submit">Add User</button>
+        </form>
+
+        <div class="users">
+            <h3>Saved Users</h3>
+            <ul>
+                {% for user in users %}
+                    <li>
+                        {{ user[1] }}
+                        <a href="/edit/{{ user[0] }}" class="edit-btn">Edit</a>
+                        <a href="/delete/{{ user[0] }}" class="delete-btn">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
