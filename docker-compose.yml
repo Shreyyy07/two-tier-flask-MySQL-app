@@ -21,6 +21,12 @@ services:
       - "5000:5000"
     depends_on:
       - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: twotier
+
 
 volumes:
   mysql_data:
